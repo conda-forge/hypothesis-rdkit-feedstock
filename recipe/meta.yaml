@@ -1,5 +1,5 @@
 {% set name = "hypothesis-rdkit" %}
-{% set version = "0.6.0" %}
+{% set version = "0.6.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/hypothesis-rdkit-{{ version }}.tar.gz
-  sha256: 166867e2c34be8331f40f22d2a356f8fb0cf6e4efd0833ec6668f63e0087943d
+  sha256: 82e873915f32519cb0170a7c6cc89543380ba898262e82829f49b6113480da17
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
