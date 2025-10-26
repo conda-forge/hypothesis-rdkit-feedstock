@@ -10,21 +10,21 @@ source:
   sha256: 82e873915f32519cb0170a7c6cc89543380ba898262e82829f49b6113480da17
 
 build:
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 2
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - rdkit
     - pip
+    - setuptools
   run:
-    - python
+    - python >={{ python_min }}
     - hypothesis
     - numpy
     - tqdm
-    - importlib-resources >=5  # [py<39]
-    - importlib-metadata >=4.6  # [py<310]
     - platformdirs
     - rdkit
 
@@ -35,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/shirte/hypothesis-rdkit
